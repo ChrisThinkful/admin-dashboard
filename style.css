@@ -1,6 +1,6 @@
 /* ---------- General ---------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -21,28 +21,149 @@ body{
 
 /* ---------- Header ---------- */
 .header {
-    background-color: rgb(218, 222, 255);
+    background-color: rgb(255, 255, 255);
     grid-area: 1 / 2 / 2 / -1;
     display: grid;
     grid-template: auto 1fr / 2fr 1fr;
+    gap: 1rem;
+    padding: 1rem 2rem;
 }
+
+.search-container {
+    display: flex;
+}
+
+
+.search-container #search {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: #e2e8f0;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-container img {
+    height: 2rem;
+    transition: transform .3s ease-in-out;
+}
+
+.profile-container img:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+}
+
+.welcome-container {
+    display: flex;
+    gap: 1rem;
+}
+.welcome-container .intro .intro-message {
+    font-weight: bold;
+}
+
+.welcome-container .intro .user-name-big {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.btns-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btns-container > button {
+    font-weight: 500;
+    background: #1992d4;
+    color: white;
+    outline: none;
+    border: 1px solid #1992d4;
+    border-radius: 2rem;
+    padding: .5rem 2rem
+}
+
+.btns-container > button:hover {
+    background: white;
+    color: #1992d4;
+    border: 1px solid #1992d4;
+    cursor: pointer;
+}
+
 /* ---------- Sidebar ---------- */
 .sidebar {
-    background-color: rgb(255, 223, 223);
+    background-color: #1992d4;
+    color: white;
     grid-area: 1 / 1 / -1 / 2;
     display: grid;
     grid-template-rows: auto auto 1fr;
-    padding: 1rem
+    padding: 1rem;
+    gap: 3rem;
 }
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo > img {
+    height: 3rem;
+}
+
+.logo > h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.main-links, 
+.secondary-links {
+    padding-left: 1rem;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    align-items: center;
+    padding: 1rem;
+}
+
+ul li:hover {
+    text-decoration: underline;
+}
+
+ul li > p {
+    font-weight: 600;
+}
+
+ul li img {
+    height: 2rem;
+}
+
+
 /* ---------- Main ---------- */
 .main {
-    background-color: rgb(213, 255, 213);
+    background-color: #e2e8f0;
     display: grid;
     grid-template-columns: 3fr 1fr;
     padding: 1rem 2rem;
     gap: 1rem;
+    box-shadow: inset 0px 3px 3px #b9bec4;
 }
-.main .projects {
+.projects {
     display: grid;
     grid-template-rows: auto 1fr 1fr;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -50,36 +171,110 @@ body{
     gap: 2rem 1rem;
 }
 
-.main .projects > h4 {
+.projects > h4 {
     font-size: 1.5rem;
     grid-column: 1 / -1;
     margin-bottom: -1.5rem;
 }
 
-.main .projects .project {
+.projects .project {
     border-radius: 10px;
     border-left: 7px solid rgb(247, 181, 40);
     background: white;
     display: grid;
     grid-template-rows: 1fr auto;
+    box-shadow: 2px 5px 5px #969696;
+    cursor: pointer;
 }
 
-.main .projects .project .text-block {
+.project:hover {
+    transform: scale(1.01);
+}
+
+.projects .project .text-block {
     padding: 1rem 1rem 0;
 }
 
-.main .projects .project .text-block .project-name {
+.projects .project .text-block .project-name {
     font-size: 1.25rem;
 }
 
-.main .projects .project .text-block p {
+.projects .project .text-block p {
     padding: 1rem 0;
     color: rgb(150, 150, 150);
 }
 
-.main .projects .project .action-block {
+.projects .project .action-block {
     display: flex;
     justify-content: end;
     gap: 1rem;
     padding: 1rem;
+}
+
+.action-block img {
+    height: 2rem;
+    transition: transform .3s ease-in-out;
+}
+
+.action-block img:hover {
+    transform: rotate(360deg);
+}
+
+.announce-and-trend {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.announcements,
+.trends {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+.announcements > h4,
+.trends > h4 {
+    font-size: 1.5rem;
+}
+
+.announcements .a-content,
+.trends .t-content {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px #969696;
+}
+
+.announcements .a-content .announcement{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.announcements .a-content .announcement > h6 {
+    font-size: 1rem;
+}
+
+.announcements .a-content .announcement > p {
+    font-size: .8rem;
+    color: #969696;
+}
+
+.announcements .a-content .separator {
+    border-top: .5px solid rgb(212, 212, 212);
+}
+
+.trends .t-content .trend {
+    display: flex;
+}
+
+.trends .t-content .trend .trend-handle {
+    font-weight: 600;
+}
+
+.trends .t-content .trend .trend-text {
+    color: #969696;
 }
